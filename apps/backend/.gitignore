@@ -11,6 +11,9 @@
 # deps
 node_modules/
 
+# js
+*.js
+
 # env
 .env
 .env.production
