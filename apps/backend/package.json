@@ -1,15 +1,14 @@
 {
   "name": "@workspace/backend",
   "type": "module",
-  "main": "src/index.ts",
+  "main": "index.ts",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch index.ts",
     "build": "tsc"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.7",
     "@hono/zod-validator": "^0.4.2",
-    "dotenv": "^16.4.7",
     "hono": "^4.6.15",
     "zod": "^3.23.8"
   },
