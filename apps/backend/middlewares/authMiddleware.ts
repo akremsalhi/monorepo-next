@@ -1,12 +1,11 @@
 import { bearerAuth } from "hono/bearer-auth";
-import { createFactory } from "hono/factory";
+import { createMiddleware } from "hono/factory";
 import { env } from "hono/adapter";
 
-const factory = createFactory()
 
-const authMiddleware = factory.createMiddleware((c, next) => {
-  const { TOKEN_SECRET } = env<{TOKEN_SECRET: string}>(c)
-
+const authMiddleware = createMiddleware((c, next) => {
+  const { TOKEN_SECRET } = env(c, 'node')
+  
   const bearer = bearerAuth({ token: TOKEN_SECRET, invalidAuthenticationHeaderMessage: {
     message: 'Unauthorized'
   }, noAuthenticationHeaderMessage: {
