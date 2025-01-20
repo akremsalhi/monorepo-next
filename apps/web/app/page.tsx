@@ -1,8 +1,16 @@
+import api from "@/lib/api"
 import { Button } from "@workspace/ui/components/button"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@workspace/ui/components/card"
 
-export default function Page() {
+export default async function Page() {
+  const response = await api.posts.$get()
+  const data = response.ok ? await response.json() : null
+
+
+  function save () {
+    const response = api.client.$post()
+  }
 
   return (
     <div className="flex items-center justify-center min-h-svh">
